@@ -3,6 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+import java.util.Random;
+
 package napakalaki;
 
 /**
@@ -17,7 +20,11 @@ public class Monster {
     
     public Monster(String nme, int lvl, BadConsequence bc, Prize prz)
     {
-        name = nme;
+	byte[] array = new byte[7];
+	new Random().nextBytes(array);
+	String randomstring = new String(array, Charset.forName("UTF-8"));
+
+        name = nme + randomstring;
         combatLevel = lvl;
         malrollo = bc;
         prize = prz;
